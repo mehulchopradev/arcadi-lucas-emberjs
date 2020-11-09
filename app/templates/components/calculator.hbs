@@ -1,0 +1,24 @@
+<h2>
+    Calculator application
+</h2>
+<div class="row">
+    <input type="text" data-ref="calculator.first.field" placeholder="Enter 1st No" value={{this.firstNo}}>
+    <select>
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+    </select>
+    <input type="text" data-ref="calculator.second.field" placeholder="Enter 2nd No" value={{this.secondNo}}>
+</div>
+<div class="row">
+    <button type="button">Calculate</button>
+</div>
+<div class="row">
+    <input type="text" data-ref="calculator.ans.field" readonly value={{this.ans}}>
+</div>
+<div class="live-results-container">
+    <p>First No: <i>34</i></p>
+    <p>Operation: <i>+</i></p>
+    <p>Second No: <i>45</i></p>
+    <p>Ans: <i>1213</i></p>
+</div>

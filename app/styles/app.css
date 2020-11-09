@@ -1,0 +1,11 @@
+.calculator-container {
+    text-align: center;
+}
+
+.calculator-container > div, h2 {
+    margin: 2rem;
+}
+
+.calculator-container > .row > select {
+    margin: 1rem;
+}
