@@ -2,23 +2,37 @@
     Calculator application
 </h2>
 <div class="row">
-    <input type="text" data-ref="calculator.first.field" placeholder="Enter 1st No" value={{this.firstNo}}>
-    <select>
+    <Input
+        @type="text"
+        @placeholder="Enter 1st No"
+        @value={{this.firstNo}}
+        @key-up={{action "cleanAns"}}
+        data-ref="calculator.first.field"
+    />
+    <select data-ref="calculator.operations.field" onchange={{action "onOperationChange" value="target.value"}}>
         <option>+</option>
         <option>-</option>
         <option>*</option>
     </select>
-    <input type="text" data-ref="calculator.second.field" placeholder="Enter 2nd No" value={{this.secondNo}}>
+    <Input
+        @type="text"
+        @placeholder="Enter 2nd No"
+        @value={{this.secondNo}}
+        @key-up={{action "cleanAns"}}
+        data-ref="calculator.second.field"
+    />
 </div>
 <div class="row">
-    <button type="button">Calculate</button>
+    <button type="button" disabled={{this.isCalcDisabled}} {{action "onCalculate"}} data-ref="calculator.calc.btn">Calculate</button>
 </div>
 <div class="row">
     <input type="text" data-ref="calculator.ans.field" readonly value={{this.ans}}>
 </div>
 <div class="live-results-container">
-    <p>First No: <i>34</i></p>
-    <p>Operation: <i>+</i></p>
-    <p>Second No: <i>45</i></p>
-    <p>Ans: <i>1213</i></p>
+    <p>First No: <i data-ref="calculator.first.label">{{this.firstNo}}</i></p>
+    <p>Operation: <i data-ref="calculator.operation.label">{{this.operation}}</i></p>
+    <p>Second No: <i data-ref="calculator.second.label">{{this.secondNo}}</i></p>
+    {{#if this.isAnsVisible}}
+        <p data-ref="calculator.ans.container">Ans: <i data-ref="calculator.ans.label">{{this.ans}}</i></p>
+    {{/if}}
 </div>

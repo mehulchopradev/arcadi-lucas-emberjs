@@ -1,3 +1,17 @@
+.header, .nav, .content {
+    text-align: center;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 600px;
+}
+
+.nav > a {
+    margin: 1rem;
+}
+
 .calculator-container {
     text-align: center;
 }

@@ -1,5 +1,11 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<div class="header">
+    <h2>Welcome to my app</h2>
+</div>
+<hr>
+<Nav/>
+<div class="content">
+    {{outlet}}
+</div>
+<div class="footer">
+    Copyright 2020. All rights reserved
+</div>
