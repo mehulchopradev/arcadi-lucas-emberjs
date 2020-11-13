@@ -1,6 +1,3 @@
-<h2>
-    Calculator application
-</h2>
 <div class="row">
     <Input
         @type="text"
@@ -28,11 +25,8 @@
 <div class="row">
     <input type="text" data-ref="calculator.ans.field" readonly value={{this.ans}}>
 </div>
-<div class="live-results-container">
-    <p>First No: <i data-ref="calculator.first.label">{{this.firstNo}}</i></p>
-    <p>Operation: <i data-ref="calculator.operation.label">{{this.operation}}</i></p>
-    <p>Second No: <i data-ref="calculator.second.label">{{this.secondNo}}</i></p>
-    {{#if this.isAnsVisible}}
-        <p data-ref="calculator.ans.container">Ans: <i data-ref="calculator.ans.label">{{this.ans}}</i></p>
-    {{/if}}
-</div>
+<CalcResults @first={{this.firstNo}}
+    @second={{this.secondNo}}
+    @ans={{this.ans}}
+    @operation={{this.operation}}
+    @isAnsVisible={{this.isAnsVisible}}/>

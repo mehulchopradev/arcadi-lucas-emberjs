@@ -1,0 +1,8 @@
+<div class="live-results-container">
+    <p>First No: <i data-ref="calculator.first.label">{{@first}}</i></p>
+    <p>Operation: <i data-ref="calculator.operation.label">{{@operation}}</i></p>
+    <p>Second No: <i data-ref="calculator.second.label">{{@second}}</i></p>
+    {{#if @isAnsVisible}}
+        <p data-ref="calculator.ans.container">Ans: <i data-ref="calculator.ans.label">{{@ans}}</i></p>
+    {{/if}}
+</div>
