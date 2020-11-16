@@ -23,3 +23,23 @@
 .calculator-container > .row > select {
     margin: 1rem;
 }
+
+.add-container {
+    padding: 1rem;
+}
+
+.add-container > button {
+    margin: 1rem;
+}
+
+.list-container {
+    padding: 1rem;
+}
+
+.list-container > .list-item {
+    margin: 1rem;
+}
+
+.list-container > .row {
+    margin-top: 2rem;
+}

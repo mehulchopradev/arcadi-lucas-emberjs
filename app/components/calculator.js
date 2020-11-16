@@ -5,11 +5,28 @@ export default Component.extend({
     // ember js component already gets a surrounding div
     classNames: ['calculator-container'],
 
-    firstNo: 12,
-    secondNo: 10,
-    ans: 22,
+    // internal object properties of the component object
+    firstNo: null,
+    secondNo: null,
+    ans: null,
     operation: '+',
     isAnsVisible: true,
+
+    didReceiveAttrs() {
+        // calls the component class didReceiveAttrs
+        this._super(...arguments);
+
+        // ur own code
+
+        // input attribute passed to the component
+        const sampleCalcData = this.sampleCalcData;
+        const { firstNo, secondNo, ans } = sampleCalcData;
+
+        // setting it on the internal properties of the compoennt
+        this.set('firstNo', firstNo);
+        this.set('secondNo', secondNo);
+        this.set('ans', ans);
+    },
 
     // this property of the component depends upon the other properties (firstNo, secondNo) of the component
     // computed property. Its value will be computed on the basis of whatever is the value of firstNo and secondNo

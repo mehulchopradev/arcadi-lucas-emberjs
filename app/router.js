@@ -7,9 +7,11 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  // route (calculator) - controller (calculator) - template (calculator)
   this.route('calculator', {
     path: 'calc'
   });
+  // route (todos) - controller (todos) - template (todos)
   this.route('todos');
 });
 

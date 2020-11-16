@@ -16,10 +16,20 @@ const selectors = {
   operationLabel: '[data-ref="calculator.operation.label"]',
 };
 
-const template = hbs`<Calculator/>`;
+const template = hbs`<Calculator
+  @sampleCalcData={{this.sampleCalcData}}/>`;
 
 module('Integration | Component | calculator', function(hooks) {
   setupRenderingTest(hooks);
+
+  // will be called before every test case that executes
+  hooks.beforeEach(function () {
+    this.sampleCalcData = {
+      firstNo: 12,
+      secondNo: 10,
+      ans: 22
+    };
+  });
 
   test('it renders the calculator component with the default data in the appropriate gui elements', async function(assert) {
     await render(template);

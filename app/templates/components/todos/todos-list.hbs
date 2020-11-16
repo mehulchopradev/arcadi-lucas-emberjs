@@ -1,0 +1,11 @@
+<div class="list-container">
+    {{#each this.todosList as |todo|}}
+        <div class="list-item">
+            <Input @type="checkbox" @checked={{todo.done}} /><span>{{todo.title}}</span><span>({{todo.created}})</span>
+        </div>
+    {{/each}}
+    <div class="row">
+        <button type="button">Clear completed todos</button>
+        <span>(3)</span>
+    </div>
+</div>
