@@ -1,11 +1,13 @@
 <div class="list-container">
-    {{#each this.todosList as |todo|}}
-        <div class="list-item">
-            <Input @type="checkbox" @checked={{todo.done}} /><span>{{todo.title}}</span><span>({{todo.created}})</span>
+    {{#each @todos as |todo|}}
+        <div class="list-item" data-ref="todos-list.component.item">
+            <Input @type="checkbox" @checked={{todo.done}} />
+            <span data-ref="todo-list.component.title">{{capitalize todo.title}}</span>
+            <span>({{moment-format todo.created 'MM-DD-YYYY'}})</span>
         </div>
     {{/each}}
     <div class="row">
-        <button type="button">Clear completed todos</button>
-        <span>(3)</span>
+        <button {{action "onClearCompletedTodos"}} disabled={{this.isDisabled}} data-ref="todo-list.component.clear-btn" type="button">Clear completed todos</button>
+        <span data-ref="todo-list.component.donecount">({{this.doneCount}})</span>
     </div>
 </div>
