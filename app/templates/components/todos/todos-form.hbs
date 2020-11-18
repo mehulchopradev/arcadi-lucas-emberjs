@@ -1,4 +1,4 @@
 <div class="add-container">
-    <input type="text" placeholder="Enter todo to save">
-    <button type="button">Save</button>
+    <Input @type="text" @placeholder="Enter todo to save" @value={{this.newTodo}}/>
+    <button {{action "onSave"}} type="button">Save</button>
 </div>

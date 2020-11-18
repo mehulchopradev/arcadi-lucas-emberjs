@@ -1,7 +1,7 @@
 <div class="list-container">
-    {{#each @todos as |todo|}}
+    {{#each this.todoList as |todo|}}
         <div class="list-item" data-ref="todos-list.component.item">
-            <Input @type="checkbox" @checked={{todo.done}} />
+            <input type="checkbox" value={{todo.id}} checked={{todo.done}} oninput={{action "onCheckboxInput"}} />
             <span data-ref="todo-list.component.title">{{capitalize todo.title}}</span>
             <span>({{moment-format todo.created 'MM-DD-YYYY'}})</span>
         </div>

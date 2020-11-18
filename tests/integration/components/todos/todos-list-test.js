@@ -20,16 +20,19 @@ module('Integration | Component | todos/todos-list', function(hooks) {
   test('it renders 3 todos', async function(assert) {
     this.todos =  [
       {
+          id: 1,
           title: 'Learn Programming',
           created: new Date(),
           done: false,
       },
       {
+          id: 2,
           title: 'Go for a movie',
           created: new Date(),
           done: true,
       },
       {
+          id: 3,
           title: 'learn Cooking',
           created: new Date(),
           done: false,
@@ -52,16 +55,19 @@ module('Integration | Component | todos/todos-list', function(hooks) {
   test('the clear completed todos button enabling/disabling', async function (assert) {
     this.todos =  [
       {
+          id: 1,
           title: 'Learn Programming',
           created: new Date(),
           done: false,
       },
       {
+          id: 2,
           title: 'Go for a movie',
           created: new Date(),
           done: false,
       },
       {
+          id: 3,
           title: 'learn Cooking',
           created: new Date(),
           done: false,
@@ -79,23 +85,25 @@ module('Integration | Component | todos/todos-list', function(hooks) {
   test('it verifies the done count', async function (assert) {
     this.todos =  [
       {
+          id: 1,
           title: 'Learn Programming',
           created: new Date(),
           done: false,
       },
       {
+          id: 2,
           title: 'Go for a movie',
           created: new Date(),
           done: false,
       },
       {
+          id: 3,
           title: 'learn Cooking',
           created: new Date(),
           done: false,
       }
     ];
     await render(template);
-    await pauseTest();
     assert.dom(selectors.doneCount).hasText('(0)');
     await click(selectors.todoItemCheckbox);
     assert.dom(selectors.doneCount).hasText('(1)');

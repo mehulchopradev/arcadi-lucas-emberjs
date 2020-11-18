@@ -4,7 +4,7 @@ import fetch from 'fetch';
 export default Route.extend({
     async model() {
         // code to fetch the model data of the calculator route
-        const response = await fetch('http://localhost:3000/calculator');
+        const response = await fetch('http://localhost:5000/calculator');
         const data = await response.json();
         return data;
     }
