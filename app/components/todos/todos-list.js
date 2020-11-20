@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
+// import { A } from '@ember/array';
 
 export default Component.extend({
 
@@ -12,9 +13,37 @@ export default Component.extend({
         this._super(...arguments);
 
         const todos = this.todos;
-        this.checkedTodos = todos.filter(todo => todo.done).map(todo => todo.id);
-        this.uncheckedTodos = todos.filter(todo => !todo.done).map(todo => todo.id);
-        this.todoList = todos;
+
+        let todoList = this.todoList;
+        if (todoList.length === 0) {
+            todoList = JSON.parse(JSON.stringify(todos)); // clone of an array object
+        }
+
+        const newTodo = this.newTodo; // incoming attribute to the todo list component
+        if (newTodo) {
+            // find id of the newly created todo
+            todoList.sort((todo1, todo2) => {
+                // ascending order
+                // negative value -> todo1 < todo 2
+                // 0 -> todo1 == todo2
+                // positive value -> todo1 > todo2
+                return todo1.id - todo2.id
+            });
+
+            // grab the last todo
+            const lastId = todoList[todoList.length-1].id;
+            const newId = lastId + 1;
+            todoList.pushObject({
+                id: newId,
+                title: newTodo,
+                done: false,
+                created: new Date(),
+            });
+        }
+
+        this.set('todoList', todoList);
+        this.set('checkedTodos', todoList.filter(todo => todo.done).map(todo => todo.id));
+        this.set('uncheckedTodos', todoList.filter(todo => !todo.done).map(todo => todo.id));
     },
 
     // isDisabled internal object attribute `depends` on the incoming todos attribute
@@ -40,9 +69,9 @@ export default Component.extend({
 
     actions: {
         onClearCompletedTodos() {
-            const todos = this.todos;
+            const todoList = this.todoList;
             const incompletedTodos = this.uncheckedTodos.map((todoId) => {
-                return todos.find(todo => todo.id === todoId);
+                return todoList.find(todo => todo.id === todoId);
             });
             
             this.set('todoList', incompletedTodos);

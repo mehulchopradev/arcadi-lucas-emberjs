@@ -7,7 +7,9 @@ export default Component.extend({
     actions: {
         onSave() {
             const newTodo = this.newTodo;
-            debugger;
+            const newTodoAdded = this.newTodoAdded; // incoming attribute to this component
+            // newTodoAdded is a callable variable
+            newTodoAdded(newTodo);
         }
     }
 });

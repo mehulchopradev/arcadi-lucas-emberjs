@@ -13,6 +13,10 @@ Router.map(function() {
   });
   // route (todos) - controller (todos) - template (todos)
   this.route('todos');
+  this.route('library', function() {
+    this.route('books');
+    this.route('book-details');
+  });
 });
 
 export default Router;

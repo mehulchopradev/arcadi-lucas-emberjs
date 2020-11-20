@@ -1,0 +1,28 @@
+- Data (Resource) coming from the backend server service ---- Visualize in ember data as a `model`
+- Attributes of the data (resource) --- Visualize as properties to be declared in the ember data model class
+
+
+Application            Store            RESTAdapter                                                 Server
+
+1. Application wants to GET the books data from the server and the Store does not have it
+    a. Application will ask ember data Store for the `book` model records
+    b. Store will return a Promise to the Application
+    c. Store will ask the Adapter to get the data from the server
+    d. Adapter wil return a Promise to the Store
+    e. Adapter will make an XHR request to the server for the books data ------- GET -> /books
+    f. Server responds back with a JSON array of JSON objects to the Adapter
+    g. Adapter will resolve the promise given in step d to the Store, with the JSON array of JSON objects data
+    i. Store will convert the JSON array of JSON objects data to a list of `book` ember data model records
+    j. Store will resolve the promise given in step b to the Application, with the `book` model records
+
+2. After the 1st scenario has happened, some other part of the application wants to GET the books data from the server
+    a. Application will ask ember data Store for the `book` model records
+    b. Store will return a Promise and immediately resolve the promise with the `book` data model records to the Application
+    c. Store will ask the Adapter to get the data from the server
+    d. Adapter wil return a Promise to the Store
+    e. Adapter will make an XHR request to the server for the books data ------- GET -> /books
+    f. Server responds back with a JSON array of JSON objects to the Adapter
+    g. Adapter will resolve the promise given in step d to the Store, with the JSON array of JSON objects data
+    i. Store will convert the JSON array of JSON objects data to a list of `book` ember data model records updating
+    its existing ember data model records
+    j. Application sees the changes done as part of step i because ember data model records have a binding with the view

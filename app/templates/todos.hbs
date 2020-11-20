@@ -1,6 +1,12 @@
 <h2>
     Todos Application
 </h2>
-<Todos::TodosForm/>
+<Todos::TodosForm
+  @newTodoAdded={{action "onNewTodoAdded"}}/>
 <Todos::TodosList
+  @newTodo={{this.newTodo}}
   @todos={{this.model}}/>
+
+{{#each this.model as |todo|}}
+  {{todo.title}}<br>
+{{/each}}

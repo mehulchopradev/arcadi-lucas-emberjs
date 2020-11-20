@@ -43,3 +43,11 @@
 .list-container > .row {
     margin-top: 2rem;
 }
+
+.book-list {
+    margin: auto;
+}
+
+.action {
+    margin: 1rem;
+}
