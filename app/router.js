@@ -15,7 +15,7 @@ Router.map(function() {
   this.route('todos');
   this.route('library', function() {
     this.route('books');
-    this.route('book-details');
+    this.route('book-details', { path: '/book-details/:book_id'});
   });
 });
 

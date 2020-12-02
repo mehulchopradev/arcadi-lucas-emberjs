@@ -1,0 +1,19 @@
+<div class="add-form">
+    <form action="">
+        <p>
+            <Input @type="text" @placeholder="Enter title" @value={{this.bookModel.title}}/>
+        </p>
+        <p>
+            <Input @type="number" @placeholder="Enter price" @value={{this.bookModel.price}}/>
+        </p>
+        <p>
+            <Input @type="number" @placeholder="Enter pages" @value={{this.bookModel.pages}}/>
+        </p>
+        <p>
+            <Input @type="text" @placeholder="Enter publication house" @value={{this.bookModel.publicationHouse}}/>
+        </p>
+        <p>
+            <button type="button" {{action "onSave"}}>Save</button>
+        </p>
+    </form>
+</div>

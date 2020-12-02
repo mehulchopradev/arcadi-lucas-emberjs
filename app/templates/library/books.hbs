@@ -7,49 +7,24 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                1
-            </td>
-            <td>
-                Programming in java
-            </td>
-            <td>
-                <LinkTo @route="library.book-details">Details</LinkTo>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                2
-            </td>
-            <td>
-                Programming in scala
-            </td>
-            <td>
-                <LinkTo @route="library.book-details">Details</LinkTo>
-            </td>
-        </tr>
+        {{#each model as |book|}}
+            <tr>
+                <td>
+                    {{book.id}}
+                </td>
+                <td>
+                    {{book.title}}
+                </td>
+                <td>
+                    <LinkTo @route="library.book-details" @model={{book.id}}>Details</LinkTo>
+                </td>
+            </tr>
+        {{/each}}
     </tbody>
 </table>
 <div class="action">
-    <button type="button">Add Book</button>
+    <button type="button" {{action "onShowBookForm"}}>Add Book</button>
 </div>
-<div class="add-form">
-    <form action="">
-        <p>
-            <input type="text" placeholder="Enter title">
-        </p>
-        <p>
-            <input type="number" placeholder="Enter price">
-        </p>
-        <p>
-            <input type="number" placeholder="Enter pages">
-        </p>
-        <p>
-            <input type="text" placeholder="Enter publication house">
-        </p>
-        <p>
-            <button type="submit">Save</button>
-        </p>
-    </form>
-</div>
+{{#if this.bookFormVisible}}
+    <Library::BookForm/>
+{{/if}}
