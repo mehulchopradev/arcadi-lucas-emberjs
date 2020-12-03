@@ -1,3 +1,7 @@
+<div>
+    <Input @type="text" @placeholder="Enter title to search" @value={{this.search}}/>
+    <button type="button" {{action "onSearch"}}>Search</button>
+</div>
 <table border="1" class="book-list">
     <thead>
         <tr>

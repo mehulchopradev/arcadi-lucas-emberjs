@@ -4,7 +4,7 @@ import { inject } from '@ember/service';
 export default Component.extend({
     bookModel: null,
 
-    store: inject(),
+    books: inject(),
     
     init() {
         this._super(...arguments);
@@ -18,11 +18,11 @@ export default Component.extend({
     },
 
     actions: {
-        onSave() {
+        async onSave() {
             const { bookModel } = this;
             bookModel.publicationDate = '2020-12-03';
-            const book = this.store.createRecord('book', bookModel);
-            book.save(); // makes a POST call to the server with the book data
+            const book = await this.books.createBook(bookModel);
+            alert(`Book saved with id ${book.id}`);
         }
     }
 });

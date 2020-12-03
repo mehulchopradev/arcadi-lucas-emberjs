@@ -13,3 +13,22 @@
 <div>
     <i>Name:</i>{{this.model.publicationHouse}}
 </div>
+
+{{#each this.model.reviews as |review|}}
+    <p>{{review.description}}</p>
+    <i>{{review.name}}</i>
+    <br>
+{{else}}
+    <h3>No reviews yet</h3>
+{{/each}}
+<div>
+    <p>
+        <Input @type="text" @placeholder="Enter name of the reviewer" @value={{this.name}}/>
+    </p>
+    <p>
+        <Input @type="text" @placeholder="Enter the desscription of the review" @value={{this.description}}/>
+    </p>
+    <p>
+        <button type="button" {{action "onSave"}}>Save</button>
+    </p>
+</div>

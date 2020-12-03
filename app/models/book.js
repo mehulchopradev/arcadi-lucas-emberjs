@@ -6,5 +6,6 @@ export default Model.extend({
     price: DS.attr('number'),
     pages: DS.attr('number'),
     publicationHouse: DS.attr('string'),
-    publicationDate: DS.attr('string')
+    publicationDate: DS.attr('string'),
+    reviews: DS.hasMany('review')
 });
